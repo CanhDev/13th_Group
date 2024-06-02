@@ -81,6 +81,10 @@ namespace Team_13st.Controllers
                 {
                     Session["User"] = user;
                     ViewBag.checkLogin = "";
+                    if (user.TenDangNhap.Contains("Admin"))
+                    {
+                        return Redirect("/Admin");
+                    }
                     return RedirectToAction("Index", "Home");
                 }
             }
