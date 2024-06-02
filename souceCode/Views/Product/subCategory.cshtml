@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Team_13st.Models.LoaiSanPham>
+    
+    @foreach(var item in Model) {
+        var productCount = Model.Where(p => p.CatalogyID == item.CatalogyID).SelectMany(p => p.SanPhams).Count();
+            <li>
+                
+                <div class="d-flex justify-content-between fruite-name">
+                    <a href="~/shop/Category/@item.CatalogyID">@item.CatalogyName</a>
+                    
+                    <span>@productCount</span>
+                </div>
+            </li>
+    }

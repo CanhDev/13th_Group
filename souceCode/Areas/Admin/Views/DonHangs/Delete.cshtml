@@ -1,0 +1,86 @@
+﻿@model Team_13st.Models.DonHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Table with stripped rows -->
+                        <h3>Bạn có chắc chắn xóa đơn hàng này không?</h3>
+                        <div>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.PhuongThucThanhToan)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.PhuongThucThanhToan)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.TongSanPham)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.TongSanPham)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.DiaChiNhanHang)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.DiaChiNhanHang)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.TongTien)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.TongTien)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ngayDat)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ngayDat)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <button class="btn btn-primary my-3" type="submit">Xóa</button> 
+                                    @Html.ActionLink("|  Quay lại", "Index")
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RUOUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChucNang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TenChucNang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhanQuyens" Relationship="Self.FK_PhanQuyen_ChucNang" FromRole="ChucNang" ToRole="PhanQuyen" />
+  </EntityType>
+  <EntityType Name="LoaiSanPham">
+    <Key>
+      <PropertyRef Name="CatalogyID" />
+    </Key>
+    <Property Name="CatalogyID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CatalogyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CatalogyImage" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.FK_Products_Catalogy" FromRole="LoaiSanPham" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="NhaSanXuat">
+    <Key>
+      <PropertyRef Name="MaNhaSanXuat" />
+    </Key>
+    <Property Name="MaNhaSanXuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhaSanXuat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SanPhams" Relationship="Self.FK__SanPham__MaNhaSa__412EB0B6" FromRole="NhaSanXuat" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="MaTaiKhoan" />
+      <PropertyRef Name="idChucNang" />
+    </Key>
+    <Property Name="MaTaiKhoan" Type="Int32" Nullable="false" />
+    <Property Name="idChucNang" Type="Int32" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChucNang" Relationship="Self.FK_PhanQuyen_ChucNang" FromRole="PhanQuyen" ToRole="ChucNang" />
+    <NavigationProperty Name="KhachHang" Relationship="RUOUModel.FK_PhanQuyen_KhachHang" FromRole="PhanQuyen" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Vintage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CatalogyID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaNhaSanXuat" Type="Int32" />
+    <NavigationProperty Name="LoaiSanPham" Relationship="Self.FK_Products_Catalogy" FromRole="SanPham" ToRole="LoaiSanPham" />
+    <NavigationProperty Name="NhaSanXuat" Relationship="Self.FK__SanPham__MaNhaSa__412EB0B6" FromRole="SanPham" ToRole="NhaSanXuat" />
+    <NavigationProperty Name="DonHangs" Relationship="RUOUModel.SanPham_DonHang" FromRole="SanPham" ToRole="DonHang" />
+    <NavigationProperty Name="ItemCarts" Relationship="RUOUModel.FK_ItemCart_SanPham" FromRole="SanPham" ToRole="ItemCart" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_PhanQuyen_ChucNang">
+    <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucNang">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="idChucNang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Catalogy">
+    <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSanPham">
+        <PropertyRef Name="CatalogyID" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="CatalogyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SanPham__MaNhaSa__412EB0B6">
+    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSanXuat">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RUOUEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChucNangs" EntityType="Self.ChucNang" />
+    <EntitySet Name="LoaiSanPhams" EntityType="Self.LoaiSanPham" />
+    <EntitySet Name="NhaSanXuats" EntityType="Self.NhaSanXuat" />
+    <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_PhanQuyen_ChucNang" Association="Self.FK_PhanQuyen_ChucNang">
+      <End Role="ChucNang" EntitySet="ChucNangs" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Catalogy" Association="Self.FK_Products_Catalogy">
+      <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SanPham__MaNhaSa__412EB0B6" Association="Self.FK__SanPham__MaNhaSa__412EB0B6">
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuats" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <EntitySet Name="KhachHangs" EntityType="RUOUModel.KhachHang" />
+    <AssociationSet Name="FK_PhanQuyen_KhachHang" Association="RUOUModel.FK_PhanQuyen_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+    </AssociationSet>
+    <EntitySet Name="DonHangs" EntityType="RUOUModel.DonHang" />
+    <EntitySet Name="GioHangs" EntityType="RUOUModel.GioHang" />
+    <AssociationSet Name="FK_DonHang_KhachHang" Association="RUOUModel.FK_DonHang_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="DonHang" EntitySet="DonHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GioHang_KhachHang" Association="RUOUModel.FK_GioHang_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="GioHang" EntitySet="GioHangs" />
+    </AssociationSet>
+    <AssociationSet Name="SanPham_DonHang" Association="RUOUModel.SanPham_DonHang">
+      <End Role="DonHang" EntitySet="DonHangs" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
+    <EntitySet Name="ItemCarts" EntityType="RUOUModel.ItemCart" />
+    <AssociationSet Name="FK_ItemCart_SanPham" Association="RUOUModel.FK_ItemCart_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="ItemCart" EntitySet="ItemCarts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemCart_GioHang" Association="RUOUModel.FK_ItemCart_GioHang">
+      <End Role="GioHang" EntitySet="GioHangs" />
+      <End Role="ItemCart" EntitySet="ItemCarts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemCart_DonHang" Association="RUOUModel.FK_ItemCart_DonHang">
+      <End Role="DonHang" EntitySet="DonHangs" />
+      <End Role="ItemCart" EntitySet="ItemCarts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKhachHang" />
+    </Key>
+    <Property Name="TenKhachHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhanQuyens" Relationship="RUOUModel.FK_PhanQuyen_KhachHang" FromRole="KhachHang" ToRole="PhanQuyen" />
+    <NavigationProperty Name="DonHangs" Relationship="RUOUModel.FK_DonHang_KhachHang" FromRole="KhachHang" ToRole="DonHang" />
+    <NavigationProperty Name="GioHangs" Relationship="RUOUModel.FK_GioHang_KhachHang" FromRole="KhachHang" ToRole="GioHang" />
+  </EntityType>
+  <Association Name="FK_PhanQuyen_KhachHang">
+    <End Type="RUOUModel.KhachHang" Role="KhachHang" Multiplicity="1" />
+    <End Type="RUOUModel.PhanQuyen" Role="PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="MaTaiKhoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="MaDonHang" />
+    </Key>
+    <Property Name="MaDonHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhuongThucThanhToan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TongSanPham" Type="Int32" />
+    <Property Name="DiaChiNhanHang" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TongTien" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="idKhachHang" Type="Int32" />
+    <NavigationProperty Name="KhachHang" Relationship="RUOUModel.FK_DonHang_KhachHang" FromRole="DonHang" ToRole="KhachHang" />
+    <NavigationProperty Name="SanPhams" Relationship="RUOUModel.SanPham_DonHang" FromRole="DonHang" ToRole="SanPham" />
+    <Property Name="ngayDat" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ItemCarts" Relationship="RUOUModel.FK_ItemCart_DonHang" FromRole="DonHang" ToRole="ItemCart" />
+  </EntityType>
+  <EntityType Name="GioHang">
+    <Key>
+      <PropertyRef Name="MaGioHang" />
+    </Key>
+    <Property Name="MaGioHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoLoaiSanPham" Type="Int32" />
+    <Property Name="NgayThem" Type="DateTime" Precision="0" />
+    <Property Name="idKhachHang" Type="Int32" />
+    <NavigationProperty Name="KhachHang" Relationship="RUOUModel.FK_GioHang_KhachHang" FromRole="GioHang" ToRole="KhachHang" />
+    <NavigationProperty Name="ItemCarts" Relationship="RUOUModel.FK_ItemCart_GioHang" FromRole="GioHang" ToRole="ItemCart" />
+  </EntityType>
+  <Association Name="FK_DonHang_KhachHang">
+    <End Type="RUOUModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+    <End Type="RUOUModel.DonHang" Role="DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GioHang_KhachHang">
+    <End Type="RUOUModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+    <End Type="RUOUModel.GioHang" Role="GioHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="GioHang">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SanPham_DonHang">
+    <End Type="RUOUModel.DonHang" Role="DonHang" Multiplicity="*" />
+    <End Type="RUOUModel.SanPham" Role="SanPham" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ItemCart">
+    <Key>
+      <PropertyRef Name="itemCartID" />
+    </Key>
+    <Property Name="itemCartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSanPham" Type="Int32" />
+    <Property Name="idGioHang" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="Gia" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="SanPham" Relationship="RUOUModel.FK_ItemCart_SanPham" FromRole="ItemCart" ToRole="SanPham" />
+    <NavigationProperty Name="GioHang" Relationship="RUOUModel.FK_ItemCart_GioHang" FromRole="ItemCart" ToRole="GioHang" />
+    <Property Name="idDonHang" Type="Int32" />
+    <NavigationProperty Name="DonHang" Relationship="RUOUModel.FK_ItemCart_DonHang" FromRole="ItemCart" ToRole="DonHang" />
+  </EntityType>
+  <Association Name="FK_ItemCart_SanPham">
+    <End Type="RUOUModel.SanPham" Role="SanPham" Multiplicity="0..1" />
+    <End Type="RUOUModel.ItemCart" Role="ItemCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ItemCart">
+        <PropertyRef Name="idSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemCart_GioHang">
+    <End Type="RUOUModel.GioHang" Role="GioHang" Multiplicity="0..1" />
+    <End Type="RUOUModel.ItemCart" Role="ItemCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GioHang">
+        <PropertyRef Name="MaGioHang" />
+      </Principal>
+      <Dependent Role="ItemCart">
+        <PropertyRef Name="idGioHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemCart_DonHang">
+    <End Type="RUOUModel.DonHang" Role="DonHang" Multiplicity="0..1" />
+    <End Type="RUOUModel.ItemCart" Role="ItemCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="MaDonHang" />
+      </Principal>
+      <Dependent Role="ItemCart">
+        <PropertyRef Name="idDonHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

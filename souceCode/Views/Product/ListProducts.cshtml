@@ -1,0 +1,66 @@
+﻿@model PagedList.IPagedList<Team_13st.Models.SanPham>
+@using PagedList.Mvc;
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<link href="~/Content/myStyle.css" rel="stylesheet" />
+
+
+@if (ViewBag.page == "getProductsById")
+{
+    <h2 class="text-center text-success">@ViewBag.sub</h2>
+}
+<div id="getProducts" class="row g-4 justify-content-center">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6 col-lg-6 col-xl-4">
+            <div class="rounded position-relative fruite-item">
+                <div class="fruite-img">
+                    <img src="~/images/Ruou/@item.Image" class="img-fluid w-100 rounded-top" alt="">
+                </div>
+                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.LoaiSanPham.CatalogyName</div>
+                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                    <h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        @Html.ActionLink(item.ProductName, "Detail", "Product", new { id = item.ProductID }, null)
+                    </h4>
+                    <p>@item.Region - nguồn gốc</p>
+                    <div class="d-flex justify-content-between flex-lg-wrap">
+                        <p class="text-dark fs-5 fw-bold mb-0">@item.Price$</p>
+                        <button onclick="handleAdd(@item.ProductID)" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <h1>@ViewBag.notify</h1>
+
+    <div id="pagination" class="col-12">
+
+        @Html.PagedListPager(Model, page => Url.Action("getProducts", new
+        {
+            page,
+            sortOrder = ViewBag.sortString,
+            searchString = ViewBag.searchString,
+            id = ViewBag.id
+        }), new PagedListRenderOptions
+   {
+       LiElementClasses = new[] { "rounded" },
+       UlElementClasses = new[] { "pagination", "justify-content-center", "d-flex", " mt-5" }
+   })
+    </div>
+
+</div>
+<script>
+    $(document).on('click', '#pagination a', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('href');
+        // Hiển thị hiệu ứng loading
+        $('#spinner').addClass("show");
+        $.get(url, function (data) {
+            setTimeout(() => {
+                $('#getProducts').html(data);
+                $('#spinner').removeClass("show");
+                $('html, body').animate({ scrollTop: 0 }, '100');
+            }, 400);
+        });
+    });
+</script>
+

@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RUOUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChucNang">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TenChucNang" Type="nvarchar" MaxLength="50" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="MaDonHang" />
+    </Key>
+    <Property Name="MaDonHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhuongThucThanhToan" Type="nvarchar" MaxLength="255" />
+    <Property Name="TongSanPham" Type="int" />
+    <Property Name="DiaChiNhanHang" Type="nvarchar" MaxLength="255" />
+    <Property Name="TongTien" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="idKhachHang" Type="int" />
+    <Property Name="ngayDat" Type="date" />
+  </EntityType>
+  <EntityType Name="GioHang">
+    <Key>
+      <PropertyRef Name="MaGioHang" />
+    </Key>
+    <Property Name="MaGioHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoLoaiSanPham" Type="int" />
+    <Property Name="NgayThem" Type="date" />
+    <Property Name="idKhachHang" Type="int" />
+  </EntityType>
+  <EntityType Name="ItemCart">
+    <Key>
+      <PropertyRef Name="itemCartID" />
+    </Key>
+    <Property Name="itemCartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSanPham" Type="int" />
+    <Property Name="idGioHang" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="Gia" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="idDonHang" Type="int" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKhachHang" />
+    </Key>
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiSanPham">
+    <Key>
+      <PropertyRef Name="CatalogyID" />
+    </Key>
+    <Property Name="CatalogyID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CatalogyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CatalogyImage" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="NhaSanXuat">
+    <Key>
+      <PropertyRef Name="MaNhaSanXuat" />
+    </Key>
+    <Property Name="MaNhaSanXuat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNhaSanXuat" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="MaTaiKhoan" />
+      <PropertyRef Name="idChucNang" />
+    </Key>
+    <Property Name="MaTaiKhoan" Type="int" Nullable="false" />
+    <Property Name="idChucNang" Type="int" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="PurchasePrice" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Price" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Vintage" Type="nvarchar" MaxLength="255" />
+    <Property Name="CatalogyID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="text" />
+    <Property Name="Region" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MaNhaSanXuat" Type="int" />
+  </EntityType>
+  <EntityType Name="SanPham_DonHang">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="MaDonHang" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="MaDonHang" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__SanPham__MaNhaSa__412EB0B6">
+    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSanXuat">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="MaNhaSanXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SanPham_D__MaDon__4CA06362">
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
+    <End Role="SanPham_DonHang" Type="Self.SanPham_DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="MaDonHang" />
+      </Principal>
+      <Dependent Role="SanPham_DonHang">
+        <PropertyRef Name="MaDonHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SanPham_D__Produ__4BAC3F29">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="SanPham_DonHang" Type="Self.SanPham_DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SanPham_DonHang">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonHang_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GioHang_KhachHang1">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="GioHang" Type="Self.GioHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="GioHang">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemCart_DonHang">
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="0..1" />
+    <End Role="ItemCart" Type="Self.ItemCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="MaDonHang" />
+      </Principal>
+      <Dependent Role="ItemCart">
+        <PropertyRef Name="idDonHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemCart_GioHang">
+    <End Role="GioHang" Type="Self.GioHang" Multiplicity="0..1" />
+    <End Role="ItemCart" Type="Self.ItemCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GioHang">
+        <PropertyRef Name="MaGioHang" />
+      </Principal>
+      <Dependent Role="ItemCart">
+        <PropertyRef Name="idGioHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemCart_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
+    <End Role="ItemCart" Type="Self.ItemCart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ItemCart">
+        <PropertyRef Name="idSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanQuyen_ChucNang">
+    <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucNang">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="idChucNang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanQuyen_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="MaTaiKhoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Catalogy">
+    <End Role="LoaiSanPham" Type="Self.LoaiSanPham" Multiplicity="1" />
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSanPham">
+        <PropertyRef Name="CatalogyID" />
+      </Principal>
+      <Dependent Role="SanPham">
+        <PropertyRef Name="CatalogyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RUOUModelStoreContainer">
+    <EntitySet Name="ChucNang" EntityType="Self.ChucNang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GioHang" EntityType="Self.GioHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemCart" EntityType="Self.ItemCart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiSanPham" EntityType="Self.LoaiSanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhaSanXuat" EntityType="Self.NhaSanXuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SanPham_DonHang" EntityType="Self.SanPham_DonHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__SanPham__MaNhaSa__412EB0B6" Association="Self.FK__SanPham__MaNhaSa__412EB0B6">
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuat" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SanPham_D__MaDon__4CA06362" Association="Self.FK__SanPham_D__MaDon__4CA06362">
+      <End Role="DonHang" EntitySet="DonHang" />
+      <End Role="SanPham_DonHang" EntitySet="SanPham_DonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SanPham_D__Produ__4BAC3F29" Association="Self.FK__SanPham_D__Produ__4BAC3F29">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="SanPham_DonHang" EntitySet="SanPham_DonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonHang_KhachHang" Association="Self.FK_DonHang_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="DonHang" EntitySet="DonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GioHang_KhachHang1" Association="Self.FK_GioHang_KhachHang1">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="GioHang" EntitySet="GioHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemCart_DonHang" Association="Self.FK_ItemCart_DonHang">
+      <End Role="DonHang" EntitySet="DonHang" />
+      <End Role="ItemCart" EntitySet="ItemCart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemCart_GioHang" Association="Self.FK_ItemCart_GioHang">
+      <End Role="GioHang" EntitySet="GioHang" />
+      <End Role="ItemCart" EntitySet="ItemCart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemCart_SanPham" Association="Self.FK_ItemCart_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="ItemCart" EntitySet="ItemCart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanQuyen_ChucNang" Association="Self.FK_PhanQuyen_ChucNang">
+      <End Role="ChucNang" EntitySet="ChucNang" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanQuyen_KhachHang" Association="Self.FK_PhanQuyen_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Catalogy" Association="Self.FK_Products_Catalogy">
+      <End Role="LoaiSanPham" EntitySet="LoaiSanPham" />
+      <End Role="SanPham" EntitySet="SanPham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

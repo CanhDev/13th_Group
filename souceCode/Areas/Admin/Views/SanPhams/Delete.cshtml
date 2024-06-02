@@ -1,0 +1,112 @@
+﻿@model Team_13st.Models.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Table with stripped rows -->
+                        <h3>Bạn chắc chắn muốn xóa sản phẩm này?</h3>
+                        <div>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.ProductName)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.ProductName)
+                                </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.PurchasePrice)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.PurchasePrice)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Price)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Quantity)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Quantity)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Vintage)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Vintage)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Image)
+                                </dt>
+
+                                <dd>
+                                    @{ 
+                                        var imgPath = "~/images/Ruou/" + Model.Image;
+                                    }
+                                    <img src="@Url.Content(imgPath)" width="250" style="object-fit:contain" />
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Region)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Region)
+                                </dd>
+
+                                <dt>
+                                   Loại rượu
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.LoaiSanPham.CatalogyName)
+                                </dd>
+
+                                <dt>
+                                    Nhà sản xuất
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.NhaSanXuat.TenNhaSanXuat)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <button class="btn btn-danger my-2 mx-2" type="submit">Xóa</button>
+                                    @Html.ActionLink("Quay lại", "Index")
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

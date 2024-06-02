@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RUOUModelStoreContainer" CdmEntityContainer="RUOUEntities1">
+    <EntitySetMapping Name="ChucNangs">
+      <EntityTypeMapping TypeName="RUOUModel.ChucNang">
+        <MappingFragment StoreEntitySet="ChucNang">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenChucNang" ColumnName="TenChucNang" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiSanPhams">
+      <EntityTypeMapping TypeName="RUOUModel.LoaiSanPham">
+        <MappingFragment StoreEntitySet="LoaiSanPham">
+          <ScalarProperty Name="CatalogyID" ColumnName="CatalogyID" />
+          <ScalarProperty Name="CatalogyName" ColumnName="CatalogyName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CatalogyImage" ColumnName="CatalogyImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaSanXuats">
+      <EntityTypeMapping TypeName="RUOUModel.NhaSanXuat">
+        <MappingFragment StoreEntitySet="NhaSanXuat">
+          <ScalarProperty Name="MaNhaSanXuat" ColumnName="MaNhaSanXuat" />
+          <ScalarProperty Name="TenNhaSanXuat" ColumnName="TenNhaSanXuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanQuyens">
+      <EntityTypeMapping TypeName="RUOUModel.PhanQuyen">
+        <MappingFragment StoreEntitySet="PhanQuyen">
+          <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+          <ScalarProperty Name="idChucNang" ColumnName="idChucNang" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="RUOUModel.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Vintage" ColumnName="Vintage" />
+          <ScalarProperty Name="CatalogyID" ColumnName="CatalogyID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="MaNhaSanXuat" ColumnName="MaNhaSanXuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RUOUModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="RUOUModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonHangs">
+      <EntityTypeMapping TypeName="RUOUModel.DonHang">
+        <MappingFragment StoreEntitySet="DonHang">
+          <ScalarProperty Name="ngayDat" ColumnName="ngayDat" />
+          <ScalarProperty Name="idKhachHang" ColumnName="idKhachHang" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="DiaChiNhanHang" ColumnName="DiaChiNhanHang" />
+          <ScalarProperty Name="TongSanPham" ColumnName="TongSanPham" />
+          <ScalarProperty Name="PhuongThucThanhToan" ColumnName="PhuongThucThanhToan" />
+          <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GioHangs">
+      <EntityTypeMapping TypeName="RUOUModel.GioHang">
+        <MappingFragment StoreEntitySet="GioHang">
+          <ScalarProperty Name="idKhachHang" ColumnName="idKhachHang" />
+          <ScalarProperty Name="NgayThem" ColumnName="NgayThem" />
+          <ScalarProperty Name="SoLoaiSanPham" ColumnName="SoLoaiSanPham" />
+          <ScalarProperty Name="MaGioHang" ColumnName="MaGioHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SanPham_DonHang" TypeName="RUOUModel.SanPham_DonHang" StoreEntitySet="SanPham_DonHang">
+      <EndProperty Name="SanPham">
+        <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+      </EndProperty>
+      <EndProperty Name="DonHang">
+        <ScalarProperty Name="MaDonHang" ColumnName="MaDonHang" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ItemCarts">
+      <EntityTypeMapping TypeName="RUOUModel.ItemCart">
+        <MappingFragment StoreEntitySet="ItemCart">
+          <ScalarProperty Name="idDonHang" ColumnName="idDonHang" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="idGioHang" ColumnName="idGioHang" />
+          <ScalarProperty Name="idSanPham" ColumnName="idSanPham" />
+          <ScalarProperty Name="itemCartID" ColumnName="itemCartID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="container-fluid page-header py-5">
+    <h1 class="opacity-0 text-center text-white display-5">...</h1>
+</div>
+
+<div class="container-fluid fruite py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <h2>Đăng ký tài khoản</h2>
+
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group my-2">
+                        <label class="control-label col-md-2" for="name">Họ và tên</label>
+                        <input class="form-control" type="text" name="name" id="name" required />
+                    </div>
+                    <div class="form-group my-2">
+                        <label class="control-label col-md-2" for="username">Tên đăng nhập</label>
+                        <input class="form-control" type="text" name="username" id="username" required />
+                    </div>
+                    <div class="form-group my-2">
+                        <label class="control-label col-md-2" for="password">Mật khẩu</label>
+                        <input class="form-control" type="password" name="password" id="password" required />
+                    </div>
+                    <div class="form-group my-2">
+                        <label class="control-label col-md-2" for="sdt">Số điện thoại</label>
+                        <input class="form-control" type="text" name="sdt" id="sdt" required />
+                    </div>
+                    <div class="form-group my-2">
+                        <label class="control-label col-md-2" for="diachi">Địa chỉ</label>
+                        <input class="form-control" type="text" name="diachi" id="diachi" required />
+                    </div>
+                    <button id="submitRegister" class="btn btn-outline-primary my-2" type="button">Đăng ký</button>
+                    <div class="form-group my-2">
+                        <label style="color: red" id="msg" class="control-label col-md-2"></label>
+                    </div>
+                    /**/
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $("#submitRegister").click(() => {
+                var name = $("#name").val();
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var sdt = $("#sdt").val();
+                var diachi = $("#diachi").val();
+
+                // Kiểm tra các trường không được bỏ trống
+                if (name === "" || username === "" || password === "" || sdt === "" || diachi === "") {
+                    $("#msg").html("Vui lòng điền đầy đủ thông tin.");
+                    return false; 
+                }
+
+                // Xử lý Ajax chỉ khi tất cả các trường đều được nhập đầy đủ
+                let inputAjax = {
+                    type: "POST",
+                    url: '@Url.Action("Register", "Account")',
+                    data: JSON.stringify({
+                        name, username, password, sdt, diachi
+                    }),
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    success: (res) => {
+                        if (res.status == true) {
+                            $("#msg").html("Đăng ký thành công");
+                            setTimeout(() => {
+                                window.location.href = "/Account/Login";
+                            }, 1000)
+                        }
+                        else {
+                            $("#msg").html(res.error);
+                        }
+                    },
+                    error: (res) => {
+                        $("#msg").html(res.error);
+                    }
+                };
+                $.ajax(inputAjax);
+                return false;
+            });
+        })
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

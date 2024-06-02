@@ -1,0 +1,1079 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D8E8E97F-4EC5-4C9B-8267-06D3D702DF3C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Team_13st</RootNamespace>
+    <AssemblyName>Team_13st</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CheckController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamsController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChucNang.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DesEncryptionHelper.cs" />
+    <Compile Include="Models\DonHang.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GioHang.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemCart.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KhachHang.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiSanPham.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhaSanXuat.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhanQuyen.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RuouModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RuouModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RuouModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RuouModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RuouModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SanPham.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>RuouModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\myStyle.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\admin.png" />
+    <Content Include="images\home.png" />
+    <Content Include="images\Ruou\Categories\banner.jpg" />
+    <Content Include="images\Ruou\Categories\champange.jpg" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\SanPhams\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhams\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Check\Index.cshtml" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="template_srs\admin\assets\css\style.css" />
+    <Content Include="template_srs\admin\assets\js\main.js" />
+    <Content Include="template_srs\admin\assets\scss\Readme.txt" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\apexcharts.amd.js" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\apexcharts.common.js" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\apexcharts.css" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\apexcharts.esm.js" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\apexcharts.js" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\apexcharts.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap-icons\bootstrap-icons.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\css\animations.css" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\css\boxicons.css" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\css\transformations.css" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chart.cjs" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chart.js" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chart.umd.js" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chunks\helpers.segment.cjs" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chunks\helpers.segment.js" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\helpers.cjs" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\helpers.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.common.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.common.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.esm.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.esm.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.esm.min.mjs" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.esm.mjs" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.simple.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.simple.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\extension\bmap.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\extension\bmap.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\extension\dataTool.js" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\extension\dataTool.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\php-email-form\validate.js" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.bubble.css" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.core.css" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.core.js" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.core.js.LICENSE.txt" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.js" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.js.LICENSE.txt" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.snow.css" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.css" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.svg" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.symbol.svg" />
+    <Content Include="template_srs\admin\assets\vendor\simple-datatables\simple-datatables.js" />
+    <Content Include="template_srs\admin\assets\vendor\simple-datatables\style.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\icons\default\icons.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\icons\default\icons.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\icons\default\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\models\dom\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\models\dom\model.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\models\dom\model.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\accordion\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\accordion\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\accordion\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\advlist\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\anchor\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autolink\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autoresize\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autosave\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\charmap\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\codesample\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\code\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\code\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\directionality\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\emoticons\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\emoticons\js\emojiimages.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\emoticons\js\emojiimages.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\fullscreen\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\ar.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\bg_BG.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\ca.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\cs.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\da.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\de.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\el.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\en.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\es.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\eu.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\fa.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\fi.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\fr_FR.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\he_IL.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\hi.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\hr.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\hu_HU.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\id.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\it.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\ja.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\kk.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\ko_KR.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\ms.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\nb_NO.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\nl.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\pl.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\pt_BR.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\pt_PT.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\ro.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\ru.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\sk.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\sl_SI.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\sv_SE.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\th_TH.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\tr.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\uk.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\vi.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\zh_CN.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\js\i18n\keynav\zh_TW.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\image\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\image\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\importcss\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\insertdatetime\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\link\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\link\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\lists\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\lists\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\media\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\media\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\nonbreaking\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\pagebreak\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\preview\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\preview\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\quickbars\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\quickbars\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\save\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\save\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\searchreplace\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\table\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\table\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\visualblocks\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\visualchars\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\wordcount\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\dark\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\dark\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\default\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\default\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\default\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\document\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\document\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\document\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\tinymce-5-dark\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\tinymce-5-dark\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\tinymce-5-dark\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\tinymce-5\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\tinymce-5\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\tinymce-5\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\writer\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\writer\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\content.inline.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\content.inline.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\skin.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\skin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\skin.shadowdom.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\skin.shadowdom.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\content.inline.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\content.inline.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\skin.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\skin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\skin.shadowdom.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\skin.shadowdom.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\content.inline.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\content.inline.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\content.inline.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\skin.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\skin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\skin.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\content.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\content.inline.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\content.inline.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\content.inline.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\content.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\content.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\skin.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\skin.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\skin.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\skin.shadowdom.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\skin.shadowdom.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.css" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\themes\silver\index.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\themes\silver\theme.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\themes\silver\theme.min.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\tinymce.js" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\tinymce.min.js" />
+    <Content Include="template_srs\img\cart-page-header-img.jpg" />
+    <Content Include="images\Ruou\Categories\Vang-do.jpg" />
+    <Content Include="images\Ruou\Categories\vang-trang.jpg" />
+    <Content Include="images\Ruou\s1.jpg" />
+    <Content Include="images\Ruou\s10.jpg" />
+    <Content Include="images\Ruou\s11.jpg" />
+    <Content Include="images\Ruou\s12.jpg" />
+    <Content Include="images\Ruou\s13.jpg" />
+    <Content Include="images\Ruou\s14.jpg" />
+    <Content Include="images\Ruou\s15.jpg" />
+    <Content Include="images\Ruou\s16.jpg" />
+    <Content Include="images\Ruou\s17.jpg" />
+    <Content Include="images\Ruou\s18.jpg" />
+    <Content Include="images\Ruou\s19.jpg" />
+    <Content Include="images\Ruou\s2.jpg" />
+    <Content Include="images\Ruou\s20.jpg" />
+    <Content Include="images\Ruou\s3.jpg" />
+    <Content Include="images\Ruou\s4.jpg" />
+    <Content Include="images\Ruou\s5.jpg" />
+    <Content Include="images\Ruou\s6.jpg" />
+    <Content Include="images\Ruou\s7.jpg" />
+    <Content Include="images\Ruou\s8.jpg" />
+    <Content Include="images\Ruou\s9.jpg" />
+    <Content Include="images\Ruou\t1.jpg" />
+    <Content Include="images\Ruou\t10.jpg" />
+    <Content Include="images\Ruou\t11.jpg" />
+    <Content Include="images\Ruou\t12.jpg" />
+    <Content Include="images\Ruou\t13.jpg" />
+    <Content Include="images\Ruou\t14.jpg" />
+    <Content Include="images\Ruou\t15.jpg" />
+    <Content Include="images\Ruou\t16.jpg" />
+    <Content Include="images\Ruou\t17.jpg" />
+    <Content Include="images\Ruou\t18.jpg" />
+    <Content Include="images\Ruou\t19.jpg" />
+    <Content Include="images\Ruou\t2.jpg" />
+    <Content Include="images\Ruou\t20.jpg" />
+    <Content Include="images\Ruou\t21.jpg" />
+    <Content Include="images\Ruou\t22.jpg" />
+    <Content Include="images\Ruou\t23.jpg" />
+    <Content Include="images\Ruou\t24.jpg" />
+    <Content Include="images\Ruou\t25.jpg" />
+    <Content Include="images\Ruou\t26.jpg" />
+    <Content Include="images\Ruou\t27.jpg" />
+    <Content Include="images\Ruou\t28.jpg" />
+    <Content Include="images\Ruou\t29.jpg" />
+    <Content Include="images\Ruou\t3.jpg" />
+    <Content Include="images\Ruou\t30.jpg" />
+    <Content Include="images\Ruou\t4.jpg" />
+    <Content Include="images\Ruou\t5.jpg" />
+    <Content Include="images\Ruou\t6.jpg" />
+    <Content Include="images\Ruou\t7.jpg" />
+    <Content Include="images\Ruou\t8.jpg" />
+    <Content Include="images\Ruou\t9.jpg" />
+    <Content Include="images\Ruou\v1.jpg" />
+    <Content Include="images\Ruou\v10.jpg" />
+    <Content Include="images\Ruou\v11.jpg" />
+    <Content Include="images\Ruou\v12.jpg" />
+    <Content Include="images\Ruou\v13.jpg" />
+    <Content Include="images\Ruou\v14.jpg" />
+    <Content Include="images\Ruou\v15.jpg" />
+    <Content Include="images\Ruou\v16.jpg" />
+    <Content Include="images\Ruou\v17.jpg" />
+    <Content Include="images\Ruou\v18.jpg" />
+    <Content Include="images\Ruou\v19.jpg" />
+    <Content Include="images\Ruou\v2.jpg" />
+    <Content Include="images\Ruou\v20.jpg" />
+    <Content Include="images\Ruou\v21.jpg" />
+    <Content Include="images\Ruou\v22.jpg" />
+    <Content Include="images\Ruou\v23.jpg" />
+    <Content Include="images\Ruou\v24.jpg" />
+    <Content Include="images\Ruou\v25.jpg" />
+    <Content Include="images\Ruou\v26.jpg" />
+    <Content Include="images\Ruou\v27.jpg" />
+    <Content Include="images\Ruou\v28.jpg" />
+    <Content Include="images\Ruou\v29.jpg" />
+    <Content Include="images\Ruou\v3.jpg" />
+    <Content Include="images\Ruou\v30.jpg" />
+    <Content Include="images\Ruou\v4.jpg" />
+    <Content Include="images\Ruou\v5.jpg" />
+    <Content Include="images\Ruou\v6.jpg" />
+    <Content Include="images\Ruou\v7.jpg" />
+    <Content Include="images\Ruou\v8.jpg" />
+    <Content Include="images\Ruou\v9.jpg" />
+    <Content Include="Models\RuouModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RuouModel.Context.cs</LastGenOutput>
+      <DependentUpon>RuouModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\RuouModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RuouModel.edmx</DependentUpon>
+      <LastGenOutput>RuouModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\RuouModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RuouModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\RuouModel.edmx.diagram">
+      <DependentUpon>RuouModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="libman.json" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="template_srs\css\bootstrap.min.css" />
+    <Content Include="template_srs\css\style.css" />
+    <Content Include="template_srs\img\avatar.jpg" />
+    <Content Include="template_srs\img\baner-1.png" />
+    <Content Include="template_srs\img\banner-fruits.jpg" />
+    <Content Include="template_srs\img\best-product-1.jpg" />
+    <Content Include="template_srs\img\best-product-2.jpg" />
+    <Content Include="template_srs\img\best-product-3.jpg" />
+    <Content Include="template_srs\img\best-product-4.jpg" />
+    <Content Include="template_srs\img\best-product-5.jpg" />
+    <Content Include="template_srs\img\best-product-6.jpg" />
+    <Content Include="template_srs\img\featur-1.jpg" />
+    <Content Include="template_srs\img\featur-2.jpg" />
+    <Content Include="template_srs\img\featur-3.jpg" />
+    <Content Include="template_srs\img\fruite-item-1.jpg" />
+    <Content Include="template_srs\img\fruite-item-2.jpg" />
+    <Content Include="template_srs\img\fruite-item-3.jpg" />
+    <Content Include="template_srs\img\fruite-item-4.jpg" />
+    <Content Include="template_srs\img\fruite-item-5.jpg" />
+    <Content Include="template_srs\img\fruite-item-6.jpg" />
+    <Content Include="template_srs\img\hero-img-1.png" />
+    <Content Include="template_srs\img\hero-img-2.jpg" />
+    <Content Include="template_srs\img\hero-img.jpg" />
+    <Content Include="template_srs\img\single-item.jpg" />
+    <Content Include="template_srs\img\testimonial-1.jpg" />
+    <Content Include="template_srs\img\vegetable-item-1.jpg" />
+    <Content Include="template_srs\img\vegetable-item-2.jpg" />
+    <Content Include="template_srs\img\vegetable-item-3.png" />
+    <Content Include="template_srs\img\vegetable-item-4.jpg" />
+    <Content Include="template_srs\img\vegetable-item-5.jpg" />
+    <Content Include="template_srs\img\vegetable-item-6.jpg" />
+    <Content Include="template_srs\js\main.js" />
+    <Content Include="template_srs\lib\easing\easing.js" />
+    <Content Include="template_srs\lib\easing\easing.min.js" />
+    <Content Include="template_srs\lib\lightbox\css\lightbox.min.css" />
+    <Content Include="template_srs\lib\lightbox\images\close.png" />
+    <Content Include="template_srs\lib\lightbox\images\loading.gif" />
+    <Content Include="template_srs\lib\lightbox\images\next.png" />
+    <Content Include="template_srs\lib\lightbox\images\prev.png" />
+    <Content Include="template_srs\lib\lightbox\js\lightbox.min.js" />
+    <Content Include="template_srs\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="template_srs\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="template_srs\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="template_srs\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="template_srs\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="template_srs\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="template_srs\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="template_srs\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="template_srs\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="template_srs\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="template_srs\lib\waypoints\links.php" />
+    <Content Include="template_srs\lib\waypoints\waypoints.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="template_srs\lib\owlcarousel\LICENSE" />
+    <Content Include="template_srs\scss\bootstrap.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\bootstrap-utilities.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\bootstrap.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_floating-labels.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_form-check.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_form-control.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_form-range.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_form-select.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_form-text.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_input-group.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_labels.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\forms\_validation.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\helpers\_clearfix.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\helpers\_colored-links.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\helpers\_position.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\helpers\_ratio.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\helpers\_stretched-link.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\helpers\_text-truncation.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\helpers\_visually-hidden.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_color-scheme.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_container.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_deprecate.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_table-variants.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_utilities.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\mixins\_visually-hidden.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\utilities\_api.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\vendor\_rfs.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_accordion.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_alert.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_badge.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_button-group.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_buttons.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_card.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_carousel.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_close.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_containers.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_dropdown.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_forms.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_functions.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_grid.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_helpers.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_images.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_list-group.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_mixins.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_modal.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_nav.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_navbar.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_offcanvas.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_pagination.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_popover.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_progress.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_reboot.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_root.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_spinners.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_tables.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_toasts.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_tooltip.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_transitions.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_type.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_utilities.scss" />
+    <Content Include="template_srs\scss\bootstrap\scss\_variables.scss" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\ListProducts.cshtml" />
+    <Content Include="Views\Product\subCategory.cshtml" />
+    <Content Include="Views\Product\getProductsById.cshtml" />
+    <Content Include="Views\Product\subCategory2.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Product\test.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\ViewItem.cshtml" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ar.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\be-cyrl.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\be-latn.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ca.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\cs.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\da.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\de.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\el.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\en.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\es.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\et.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\fa.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\fi.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\fr.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\he.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\hi.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\hr.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\hu.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\hy.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\id.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\it.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ja.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ka.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ko.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\lt.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\lv.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ms.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\nb.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\nl.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\pl.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\pt-br.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\pt.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\rs.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ru.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\se.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\sk.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\sl.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\sq.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\th.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\tr.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\ua.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\zh-cn.json" />
+    <Content Include="template_srs\admin\assets\vendor\apexcharts\locales\zh-tw.json" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap-icons\bootstrap-icons.scss" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="template_srs\admin\assets\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chart.cjs.map" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chart.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chart.umd.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chunks\helpers.segment.cjs.map" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\chunks\helpers.segment.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\helpers.cjs.map" />
+    <Content Include="template_srs\admin\assets\vendor\chart.js\helpers.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.common.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.esm.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.esm.mjs.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\echarts.simple.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\extension\bmap.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\extension\dataTool.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\echarts\package.json" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.bubble.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.core.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.core.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.js.map" />
+    <Content Include="template_srs\admin\assets\vendor\quill\quill.snow.css.map" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.eot" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.glyph.json" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.less" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.ttf" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.woff" />
+    <Content Include="template_srs\admin\assets\vendor\remixicon\remixicon.woff2" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\bower.json" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\CHANGELOG.md" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\composer.json" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\license.md" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\package.json" />
+    <Content Include="template_srs\admin\assets\vendor\tinymce\README.md" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Account\Banned.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.bar.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.bubble.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.doughnut.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.line.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.pie.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.polarArea.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.radar.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\controller.scatter.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\controllers\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.adapters.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.animation.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.animations.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.animations.defaults.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.animator.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.config.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.controller.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.datasetController.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.defaults.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.element.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.interaction.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.layouts.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.layouts.defaults.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.plugins.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.registry.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.scale.autoskip.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.scale.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.scale.defaults.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.ticks.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\core.typedRegistry.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\core\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\elements\element.arc.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\elements\element.bar.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\elements\element.line.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\elements\element.point.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\elements\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.canvas.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.collection.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.color.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.config.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.config.types.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.core.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.curve.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.dom.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.easing.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.extras.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.interpolation.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.intl.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.math.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.options.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.rtl.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\helpers.segment.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\helpers\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\index.umd.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\platform\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\platform\platform.base.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\platform\platform.basic.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\platform\platform.dom.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.colors.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.decimation.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\filler.drawing.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\filler.helper.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\filler.options.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\filler.segment.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\filler.target.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\filler.target.stack.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.filler\simpleArc.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.legend.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.subtitle.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.title.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\plugins\plugin.tooltip.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\scale.category.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\scale.linear.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\scale.linearbase.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\scale.logarithmic.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\scale.radialLinear.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\scale.time.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\scales\scale.timeseries.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types\animation.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types\basic.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types\color.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types\geometric.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types\index.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types\layout.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\chart.js\types\utils.d.ts" />
+    <TypeScriptCompile Include="template_srs\admin\assets\vendor\tinymce\tinymce.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53410</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

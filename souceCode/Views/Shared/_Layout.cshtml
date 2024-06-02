@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Rượu Đức Nhật</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+          rel="stylesheet" />
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/template_srs/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="~/template_srs/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/template_srs/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="~/template_srs/css/style.css" rel="stylesheet" />
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/images/Ruou/s2.jpg">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+         class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Navbar start -->
+    <div class="container-fluid fixed-top">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3">
+                        <i class="fas fa-map-marker-alt me-2 text-secondary"></i>
+                        <a href="#" class="text-white">Ngõ 296 Cầu Diễn, Haui</a>
+                    </small>
+                    <small class="me-3">
+                        <i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a>
+                    </small>
+                </div>
+                <div class="top-link pe-2">
+                    @{
+                        Team_13st.Models.KhachHang kh = (Team_13st.Models.KhachHang)(@Session["User"]);
+                    }
+                    @if (kh != null)
+                    {
+                        <a href="#" class="text-white">Welcome @kh.TenDangNhap</a>
+                        <a href="#" class="text-white">|</a>
+                        <a href="/Account/Logout" class="text-white">Đăng xuất</a>
+                    }
+                    else
+                    {
+                        <a href="/Account/Register" class="text-white">Đăng ký /</a>
+                        <span class="opacity-0 text-center text-white">....</span>
+                        <a href="/Account/Login" class="text-white">Đăng nhập</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand"><h1 class="text-primary display-6">RƯỢU ĐỨC NHẬT</h1></a>
+                <button class="navbar-toggler py-2 px-3"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="@Url.Action("Index", "Home")" class="nav-item nav-link">Trang chủ</a>
+                        <a href="@Url.Action("Index", "Product")" class="nav-item nav-link">Danh sách rượu</a>
+                        <div class="nav-item dropdown">
+                            <a href="#"
+                               class="nav-link dropdown-toggle"
+                               data-bs-toggle="dropdown">Các loại rượu</a>
+                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                @{ Html.RenderAction("subCategory2", "Product");}
+                            </div>
+                        </div>
+                        @if (kh != null)
+                        {
+                            <a href="@Url.Action("Index", "Order")" class="nav-item nav-link">Đơn hàng</a>
+                        }
+                    </div>
+                    <div class="d-flex m-3 me-0">
+                        @if (kh != null)
+                        {
+                            <a href="/Cart" class="position-relative me-4 my-auto">
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                            </a>
+                            if (kh.TenDangNhap.Contains("Admin"))
+                            {
+                                <a href="/Admin/" class="my-auto">
+                                    <i class="fas fa-user fa-2x"></i>
+                                </a>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+    <!-- Modal Search Start -->
+    <div class="modal fade"
+         id="searchModal"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Tìm kiếm theo tên
+                    </h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="input-group w-75 mx-auto d-flex">
+                        <input type="search"
+                               class="form-control p-3"
+                               placeholder="Tên rượu"
+                               aria-describedby="search-icon-1" />
+                        <span id="search-icon-1" class="input-group-text p-3">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+
+    @RenderBody()
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="pb-4 mb-4"
+                 style="border-bottom: 1px solid rgba(226, 175, 24, 0.5)">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <h1 class="text-primary mb-0">Rượu Đức Nhật</h1>
+                            <p class="text-secondary mb-0">Chất lượng cao</p>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="d-flex justify-content-end pt-3">
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                               href="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                               href="">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle"
+                               href="">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a class="btn btn-outline-secondary btn-md-square rounded-circle"
+                               href="">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light">
+                        <a href="#">
+                            <i class="fas fa-copyright text-light me-2"></i>Team13
+                        </a>, All right reserved.
+                    </span>
+                </div>
+                <div class="col-md-6 my-auto text-center text-md-end text-white">
+                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+    <!-- Back to Top -->
+    <a href="#"
+       class="btn btn-primary border-3 border-primary rounded-circle back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/template_srs/lib/easing/easing.min.js"></script>
+    <script src="~/template_srs/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/template_srs/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="~/template_srs/lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- Template Javascript -->
+    <script src="~/template_srs/js/main.js"></script>
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <script>
+        var handleAdd = (id) => {
+            let inputAjax = {
+                type: "POST",
+                url: '@Url.Action("addItem", "Cart")',
+                data: JSON.stringify({
+                    productId: id
+                }),
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: (res) => {
+                    if (res.status == true) {
+                        alert("Thêm thành công");
+                    }
+                    else {
+                        alert(res.error);
+                    }
+                },
+                error: (res) => {
+                    alert(res.error);
+                }
+            };
+            $.ajax(inputAjax);
+            return false;
+        }
+        </script>
+        @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

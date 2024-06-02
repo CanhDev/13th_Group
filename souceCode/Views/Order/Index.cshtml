@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Team_13st.Models.DonHang>
+
+@{
+    ViewBag.Title = "Đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="opacity-0 text-center text-white display-5">...</h1>
+</div>
+
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            @if (Model.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Số sản phẩm</th>
+                            <th scope="col">Địa chỉ nhận hàng</th>
+                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Ngày đặt</th>
+                            <th scope="col">Phương thức thanh toán</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <p class="mb-0 mt-4">@(++count)</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">@item.TongSanPham</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">@item.DiaChiNhanHang</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">$@item.TongTien</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">@item.ngayDat</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">@item.PhuongThucThanhToan</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">
+                                        <a href="@Url.Action("ViewItem", "Order", new {id = item.MaDonHang}, null)">Xem các sản phẩm</a>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">
+                                        <a href="@Url.Action("RemoveOrder", "Order", new {id = item.MaDonHang}, null)">Hủy đơn hàng</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h2>Bạn chưa có đơn hàng nào</h2>
+            }
+        </div>
+    </div>
+</div>
+<!-- Cart Page End -->

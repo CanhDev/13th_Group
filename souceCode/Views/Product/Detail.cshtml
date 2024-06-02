@@ -1,0 +1,97 @@
+﻿@model Team_13st.Models.SanPham
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="opacity-0 text-center text-white display-5">...</h1>
+</div>
+<!-- Single Page Header End -->
+<!-- Single Product Start -->
+<div class="container-fluid py-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8 col-xl-9">
+                <div class="row g-4">
+                    <h1 class="fw-bold mb-0">Chi tiết sản phẩm</h1>
+                    <div class="col-lg-6">
+                        <div class="border rounded">
+                            <a href="#">
+                                <img src="~/images/Ruou/@Model.Image" class="img-fluid rounded" alt="Image">
+                            </a>
+                        </div>
+                    </div>
+                    @*main detail*@
+                    <div class="col-lg-6">
+                        <input id="productId" value="@Model.ProductID" hidden />
+                        <h4 class="fw-bold mb-3">@Model.ProductName</h4>
+                        <p class="mb-3">Category: @Model.LoaiSanPham.CatalogyName</p>
+                        <h5 class="fw-bold mb-3">@Model.Price $</h5>
+                        <div class="d-flex mb-4">
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p style="text-align: justify" class="mb-4">@Model.LoaiSanPham.Description</p>
+                        <p class="mb-4">Region: @Model.Region</p>
+                        <div class="input-group quantity mb-5" style="width: 100px;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            <input id="soluong" type="text" class="form-control form-control-sm text-center border-0" value="1">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <a id="submit" href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single Product End -->
+@section Scripts{
+    <script>
+    $(document).ready(() => {
+        $("#submit").click((event) => {
+            event.preventDefault();
+            var productId = $("#productId").val();
+            var soluong = $("#soluong").val();
+            //
+            let inputAjax = {
+                type: "POST",
+                url: '@Url.Action("addItem", "Cart")',
+                data: JSON.stringify({
+                    productId, soluong
+                }),
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: (res) => {
+                    if (res.status == true) {
+                        alert("Thêm thành công");
+                    }
+                    else {
+                        alert(res.error);
+                    }
+                },
+                error: (res) => {
+                    alert(res.error);
+                }
+            };
+            $.ajax(inputAjax);
+            return false;
+        });
+    });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

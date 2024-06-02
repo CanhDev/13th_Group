@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Team_13st.Models.ItemCart>
+
+@{
+    ViewBag.Title = "ViewItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="opacity-0 text-center text-white display-5">...</h1>
+</div>
+
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            @if (Model.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sản phẩm</th>
+                            <th scope="col">Tên rượu</th>
+                            <th scope="col">Giá</th>
+                            <th scope="col">Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">
+                                    <div class="d-flex align-items-center">
+                                        <img src="~/images/Ruou/@Html.DisplayFor(modelItem => item.SanPham.Image)" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                    </div>
+                                </th>
+                                <td>
+                                    <p class="mb-0 mt-4">@Html.DisplayFor(modelItem => item.SanPham.ProductName)</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">$@Html.DisplayFor(modelItem => item.SanPham.Price)</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">@Html.DisplayFor(modelItem => item.SoLuong)</p>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a class="btn btn-outline-primary my-2" href="@Url.Action("Index", "Order")">Quay lại</a>
+            }
+            else
+            {
+                <h2>Lỗi hiển thị</h2>
+            }
+        </div>
+    </div>
+</div>
+<!-- Cart Page End -->

@@ -1,0 +1,5 @@
+﻿@model IEnumerable<Team_13st.Models.LoaiSanPham>
+@foreach (var item in Model)
+{
+    <a href="~/shop/Category/@item.CatalogyID" class="dropdown-item">@item.CatalogyName</a>
+}
