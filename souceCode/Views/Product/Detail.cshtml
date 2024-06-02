@@ -28,8 +28,8 @@
                     <div class="col-lg-6">
                         <input id="productId" value="@Model.ProductID" hidden />
                         <h4 class="fw-bold mb-3">@Model.ProductName</h4>
-                        <p class="mb-3">Category: @Model.LoaiSanPham.CatalogyName</p>
-                        <h5 class="fw-bold mb-3">@Model.Price $</h5>
+                        <p class="mb-3">Loại rượu: @Model.LoaiSanPham.CatalogyName</p>
+                        <h5 class="fw-bold mb-3">Giá: @Model.Price $</h5>
                         <div class="d-flex mb-4">
                             <i class="fa fa-star text-secondary"></i>
                             <i class="fa fa-star text-secondary"></i>
@@ -38,7 +38,7 @@
                             <i class="fa fa-star"></i>
                         </div>
                         <p style="text-align: justify" class="mb-4">@Model.LoaiSanPham.Description</p>
-                        <p class="mb-4">Region: @Model.Region</p>
+                        <p class="mb-4">Xuất xứ: @Model.Region</p>
                         <div class="input-group quantity mb-5" style="width: 100px;">
                             <div class="input-group-btn">
                                 <button class="btn btn-sm btn-minus rounded-circle bg-light border">
@@ -52,7 +52,7 @@
                                 </button>
                             </div>
                         </div>
-                        <a id="submit" href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                        <a id="submit" href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ hàng</a>
                     </div>
                 </div>
             </div>
